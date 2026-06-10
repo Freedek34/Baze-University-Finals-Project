@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CryptoVault - Transfer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/transfer.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="top-header-left">
+                <a href="dashboard.html" class="btn-icon btn-secondary" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;text-decoration:none;"><i class="fas fa-chevron-left"></i></a>
+                <span class="page-title">Send Crypto</span>
+            </div>
+            <div class="top-header-right">
+                <span class="badge badge-gold" id="availableBalance">$0.00</span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Transfer Form -->
+            <div class="transfer-card">
+                <form id="transferForm">
+                    <div class="form-group">
+                        <label>Recipient Username</label>
+                        <input type="text" id="recipientSearch" class="form-input" placeholder="Search by username...">
+                        <div id="recipientResult" style="margin-top:8px;"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Coin</label>
+                        <select id="coinSelect" class="form-input">
+                            <option value="USDT">USDT</option>
+                            <option value="BTC">BTC</option>
+                            <option value="ETH">ETH</option>
+                            <option value="SOL">SOL</option>
+                            <option value="BNB">BNB</option>
+                            <option value="XRP">XRP</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label id="amountLabel">Amount (USDT)</label>
+                        <input type="number" id="transferAmount" class="form-input" placeholder="Enter amount" step="any" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Note (optional)</label>
+                        <input type="text" id="transferDesc" class="form-input" placeholder="What's this for?">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-paper-plane"></i> Send</button>
+                </form>
+            </div>
+
+            <!-- How it works -->
+            <div class="how-it-works">
+                <h3><i class="fas fa-info-circle"></i> How it works</h3>
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div>Search for a CryptoVault user by their username.</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div>Select the coin you want to send.</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div>Enter the amount and confirm the transfer.</div>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-bolt"></i>
+                    <span>Internal transfers are <strong>instant</strong> and <strong>free</strong>.</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="dashboard.html" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="portfolio.html" class="nav-item"><i class="fas fa-th-large"></i><span>Portfolio</span></a>
+            <a href="transactions.html" class="nav-item"><i class="fas fa-exchange-alt"></i><span>Transactions</span></a>
+            <a href="p2p.html" class="nav-item"><i class="fas fa-store"></i><span>P2P</span></a>
+        </nav>
+    </div>
+    <script src="../js/config.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/transfer.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CryptoVault - Receive from Bybit User</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/deposit.css">
+</head>
+<body>
+    <div class="app-layout">
+        <header class="top-header">
+            <div class="top-header-left">
+                <a href="dashboard.html" class="btn-icon btn-secondary" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;text-decoration:none;"><i class="fas fa-chevron-left"></i></a>
+                <span class="page-title">Receive from User</span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div id="formSection">
+                <div class="deposit-step-card">
+                    <div class="form-group">
+                        <label>Search Bybit User</label>
+                        <input type="text" id="userSearch" class="form-input" placeholder="Username, UID, or email" autocomplete="off">
+                    </div>
+                    <div id="searchResults"></div>
+
+                    <div id="selectedUser" style="display:none;margin:16px 0;">
+                        <div class="user-search-result selected" style="cursor:default;">
+                            <div class="user-avatar-sm" id="selectedAvatar">U</div>
+                            <div class="user-search-info">
+                                <div class="user-search-name" id="selectedName">—</div>
+                                <div class="user-search-meta" id="selectedMeta">—</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Expected Amount</label>
+                        <div class="input-group">
+                            <input type="number" id="expectedAmount" class="form-input" placeholder="0.00" step="any" min="0">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Asset</label>
+                        <select id="transferCoin" class="form-input">
+                            <option value="USDT">USDT</option>
+                            <option value="BTC">BTC</option>
+                            <option value="ETH">ETH</option>
+                        </select>
+                    </div>
+                    <button id="requestBtn" class="btn btn-primary btn-block" disabled>
+                        <i class="fas fa-paper-plane"></i> Request Transfer
+                    </button>
+                </div>
+            </div>
+
+            <div id="approvalSection" style="display:none;">
+                <div class="deposit-step-card">
+                    <div class="status-timeline">
+                        <div class="status-step done">
+                            <div class="status-dot"><i class="fas fa-check"></i></div>
+                            <div class="status-step-content">
+                                <h4>Request Sent</h4>
+                                <p>Waiting for sender to approve</p>
+                            </div>
+                        </div>
+                        <div class="status-step active" id="stepProcessing">
+                            <div class="status-dot"><i class="fas fa-spinner fa-spin"></i></div>
+                            <div class="status-step-content">
+                                <h4>Processing</h4>
+                                <p id="processingText">Verifying transfer...</p>
+                            </div>
+                        </div>
+                        <div class="status-step" id="stepApproved">
+                            <div class="status-dot">3</div>
+                            <div class="status-step-content">
+                                <h4>Approved</h4>
+                                <p>Funds credited to your account</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="simulateApproveBtn" class="btn btn-primary btn-block" style="display:none;">
+                        <i class="fas fa-check-double"></i> <span id="approveBtnText">Sender Has Sent Crypto</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="successSection" style="display:none;">
+                <div class="success-card deposit-step-card">
+                    <div class="success-icon"><i class="fas fa-check"></i></div>
+                    <h3>Transfer Approved</h3>
+                    <p id="successMessage">Your balance has been credited.</p>
+                    <a href="dashboard.html" class="btn btn-primary btn-block">Back to Home</a>
+                </div>
+            </div>
+        </main>
+
+        <div id="loadingModal" class="loading-modal">
+            <div class="spinner"></div>
+            <p id="loadingText">Connecting to sender...</p>
+        </div>
+    </div>
+    <script src="../js/config.js?v=20250609b"></script>
+    <script src="../js/api.js?v=20250609b"></script>
+    <script src="../js/utils.js?v=20250609b"></script>
+    <script src="../js/deposit-bybit-user.js?v=20250609b"></script>
+</body>
+</html>

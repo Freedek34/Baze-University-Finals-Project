@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CryptoVault - Deposit Crypto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/deposit.css">
+</head>
+<body>
+    <div class="app-layout">
+        <header class="top-header">
+            <div class="top-header-left">
+                <a href="dashboard.html" class="btn-icon btn-secondary" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;text-decoration:none;"><i class="fas fa-chevron-left"></i></a>
+                <span class="page-title">Deposit Crypto</span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="deposit-step-card">
+                <label class="selector-label" style="display:block;margin-bottom:14px;font-size:0.85rem;color:var(--text-secondary);">Select Asset</label>
+                <div class="deposit-coin-grid" id="coinGrid">
+                    <a href="deposit-network.html?coin=USDT" class="deposit-coin-option" data-coin="USDT">
+                        <div class="coin-dot-lg" style="background:#26a17b20;color:#26a17b">₮</div>
+                        <span>USDT</span>
+                    </a>
+                    <a href="deposit-network.html?coin=BTC" class="deposit-coin-option" data-coin="BTC">
+                        <div class="coin-dot-lg" style="background:#f7931a20;color:#f7931a"><i class="fab fa-bitcoin"></i></div>
+                        <span>BTC</span>
+                    </a>
+                    <a href="deposit-network.html?coin=ETH" class="deposit-coin-option" data-coin="ETH">
+                        <div class="coin-dot-lg" style="background:#627eea20;color:#627eea"><i class="fab fa-ethereum"></i></div>
+                        <span>ETH</span>
+                    </a>
+                    <a href="deposit-network.html?coin=SOL" class="deposit-coin-option" data-coin="SOL">
+                        <div class="coin-dot-lg" style="background:#9945ff20;color:#9945ff">S</div>
+                        <span>SOL</span>
+                    </a>
+                    <a href="deposit-network.html?coin=BNB" class="deposit-coin-option" data-coin="BNB">
+                        <div class="coin-dot-lg" style="background:#f0b90b20;color:#f0b90b">B</div>
+                        <span>BNB</span>
+                    </a>
+                    <a href="deposit-network.html?coin=XRP" class="deposit-coin-option" data-coin="XRP">
+                        <div class="coin-dot-lg" style="background:#23292f20;color:#fff">X</div>
+                        <span>XRP</span>
+                    </a>
+                </div>
+            </div>
+            <div class="warning-card" style="background:var(--yellow-bg);border:1px solid rgba(251,191,36,0.2);border-radius:var(--radius);padding:14px;display:flex;gap:12px;font-size:0.82rem;">
+                <i class="fas fa-info-circle" style="color:var(--yellow);margin-top:2px;"></i>
+                <p style="color:var(--text-secondary);">Choose the asset you want to deposit. On the next screen you'll select the network and receive your deposit address.</p>
+            </div>
+        </main>
+    </div>
+    <script src="../js/config.js"></script>
+    <script src="../js/utils.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', () => { if (!Utils.checkAuth()) return; });</script>
+</body>
+</html>

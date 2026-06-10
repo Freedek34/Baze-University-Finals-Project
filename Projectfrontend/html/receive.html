@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CryptoVault - Receive</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/receive.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="top-header-left">
+                <a href="dashboard.html" class="btn-icon btn-secondary" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;text-decoration:none;"><i class="fas fa-chevron-left"></i></a>
+                <span class="page-title">Receive</span>
+            </div>
+            <div class="top-header-right">
+                <button class="btn-icon btn-secondary" title="Help"><i class="fas fa-question-circle"></i></button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Asset Selector -->
+            <div class="selector-card">
+                <label class="selector-label">Select Asset</label>
+                <div class="asset-selector" id="assetSelector">
+                    <div class="asset-option active" data-coin="USDT"><span class="coin-dot" style="background:#26a17b"></span> USDT</div>
+                    <div class="asset-option" data-coin="BTC"><span class="coin-dot" style="background:#f7931a"></span> BTC</div>
+                    <div class="asset-option" data-coin="ETH"><span class="coin-dot" style="background:#627eea"></span> ETH</div>
+                    <div class="asset-option" data-coin="SOL"><span class="coin-dot" style="background:#9945ff"></span> SOL</div>
+                    <div class="asset-option" data-coin="BNB"><span class="coin-dot" style="background:#f0b90b"></span> BNB</div>
+                    <div class="asset-option" data-coin="XRP"><span class="coin-dot" style="background:#23292f"></span> XRP</div>
+                    <div class="asset-option" data-coin="ADA"><span class="coin-dot" style="background:#0033ad"></span> ADA</div>
+                    <div class="asset-option" data-coin="DOGE"><span class="coin-dot" style="background:#c3a634"></span> DOGE</div>
+                    <div class="asset-option" data-coin="AVAX"><span class="coin-dot" style="background:#e84142"></span> AVAX</div>
+                </div>
+            </div>
+
+            <!-- Network Selector -->
+            <div class="selector-card">
+                <label class="selector-label">Select Network</label>
+                <div id="networkSelector" class="network-selector">
+                    <div class="loading"><div class="spinner"></div></div>
+                </div>
+            </div>
+
+            <!-- Deposit Address Display -->
+            <div class="address-card" id="addressCard" style="display:none;">
+                <div class="qr-section" id="qrSection">
+                    <div class="qr-placeholder" id="qrCode">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                </div>
+                <div class="address-section">
+                    <label class="address-label">Deposit Address</label>
+                    <div class="address-display">
+                        <code id="depositAddress" class="address-text">—</code>
+                        <button class="btn-copy" id="copyAddressBtn" title="Copy"><i class="fas fa-copy"></i></button>
+                    </div>
+                </div>
+                <div id="tagSection" class="tag-section" style="display:none;">
+                    <label class="address-label">Memo / Tag</label>
+                    <div class="address-display">
+                        <code id="depositTag" class="address-text">—</code>
+                        <button class="btn-copy" id="copyTagBtn" title="Copy"><i class="fas fa-copy"></i></button>
+                    </div>
+                </div>
+                <div class="address-info" id="addressInfo"></div>
+            </div>
+
+            <!-- Warning -->
+            <div class="warning-card">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>Important</strong>
+                    <p>Only send the selected asset on the correct network. Sending other assets or using the wrong network may result in permanent loss of funds.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="dashboard.html" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="portfolio.html" class="nav-item"><i class="fas fa-th-large"></i><span>Portfolio</span></a>
+            <a href="transactions.html" class="nav-item"><i class="fas fa-exchange-alt"></i><span>Transactions</span></a>
+            <a href="p2p.html" class="nav-item"><i class="fas fa-store"></i><span>P2P</span></a>
+        </nav>
+    </div>
+    <script src="../js/config.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/receive.js"></script>
+</body>
+</html>

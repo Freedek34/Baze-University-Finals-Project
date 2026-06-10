@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CryptoVault - Select Network</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/receive.css">
+    <link rel="stylesheet" href="../css/deposit.css">
+</head>
+<body>
+    <div class="app-layout">
+        <header class="top-header">
+            <div class="top-header-left">
+                <a href="deposit-crypto.html" class="btn-icon btn-secondary" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;text-decoration:none;"><i class="fas fa-chevron-left"></i></a>
+                <span class="page-title">Deposit <span id="coinLabel">—</span></span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="selector-card deposit-step-card">
+                <label class="selector-label">Select Network</label>
+                <div id="networkSelector" class="network-selector">
+                    <div class="loading"><div class="spinner"></div></div>
+                </div>
+            </div>
+
+            <div class="address-card" id="addressCard" style="display:none;">
+                <div class="qr-section">
+                    <div class="qr-placeholder" id="qrCode"><i class="fas fa-qrcode"></i></div>
+                </div>
+                <div class="address-section">
+                    <label class="address-label">Deposit Address</label>
+                    <div class="address-display">
+                        <code id="depositAddress" class="address-text">—</code>
+                        <button class="btn-copy" id="copyAddressBtn" title="Copy"><i class="fas fa-copy"></i></button>
+                    </div>
+                </div>
+                <div id="tagSection" class="tag-section" style="display:none;">
+                    <label class="address-label">Memo / Tag</label>
+                    <div class="address-display">
+                        <code id="depositTag" class="address-text">—</code>
+                        <button class="btn-copy" id="copyTagBtn" title="Copy"><i class="fas fa-copy"></i></button>
+                    </div>
+                </div>
+                <div class="address-info" id="addressInfo"></div>
+                <div id="demoBadge" class="badge badge-yellow" style="display:none;margin-top:10px;">Demo Address</div>
+            </div>
+
+            <div id="amountSection" class="deposit-step-card" style="display:none;">
+                <div class="form-group">
+                    <label>Amount to Deposit (<span id="amountCoin">—</span>)</label>
+                    <input type="number" id="depositAmount" class="form-input" placeholder="Enter amount sent" step="any" min="0">
+                </div>
+                <button id="confirmSentBtn" class="btn btn-primary btn-block">
+                    <i class="fas fa-check-circle"></i> I Have Sent the Crypto
+                </button>
+            </div>
+
+            <div id="successSection" style="display:none;">
+                <div class="success-card deposit-step-card">
+                    <div class="success-icon"><i class="fas fa-check"></i></div>
+                    <h3>Deposit Confirmed</h3>
+                    <p id="successMessage">Your balance has been credited.</p>
+                    <a href="dashboard.html" class="btn btn-primary btn-block">Back to Home</a>
+                </div>
+            </div>
+
+            <div class="warning-card">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>Important</strong>
+                    <p>Only send the selected asset on the correct network. Wrong network deposits may result in permanent loss.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../js/config.js?v=20250609b"></script>
+    <script src="../js/api.js?v=20250609b"></script>
+    <script src="../js/utils.js?v=20250609b"></script>
+    <script src="../js/deposit-network.js?v=20250609b"></script>
+</body>
+</html>

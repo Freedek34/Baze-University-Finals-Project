@@ -1,0 +1,123 @@
+/* CryptoVault - Auth Pages | Black & Gold */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+.auth-page::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+        radial-gradient(circle at 30% 20%, rgba(212, 168, 67, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(232, 197, 90, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(212, 168, 67, 0.02) 0%, transparent 70%);
+    pointer-events: none;
+    animation: authPulse 8s ease-in-out infinite alternate;
+}
+@keyframes authPulse {
+    from { opacity: 0.6; }
+    to { opacity: 1; }
+}
+.auth-container {
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    z-index: 1;
+}
+.auth-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: 44px 32px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+.auth-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent-gradient);
+}
+.auth-brand {
+    text-align: center;
+    margin-bottom: 36px;
+}
+.auth-brand .brand-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+    background: var(--accent-gradient);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: #000;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow-gold);
+}
+.auth-brand h1 {
+    font-size: 1.6rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.auth-brand p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 8px;
+}
+.auth-form .form-group { margin-bottom: 22px; }
+.auth-form .form-input {
+    padding: 14px 16px;
+    font-size: 0.95rem;
+    background: var(--bg-primary);
+    border-radius: var(--radius-sm);
+}
+.auth-form .btn-primary {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    margin-top: 10px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+.auth-footer {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+.auth-footer a {
+    font-weight: 600;
+    color: var(--accent-primary);
+}
+.auth-footer a:hover {
+    color: var(--accent-secondary);
+}
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 24px 0;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+.auth-divider::before, .auth-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+}

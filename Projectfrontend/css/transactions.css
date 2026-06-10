@@ -1,0 +1,166 @@
+/* CryptoVault - Transactions | Black & Gold */
+
+/* ── Transaction Action Buttons (like the image) ── */
+.tx-actions {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding: 0 4px 4px 4px;
+    overflow-x: auto;
+    max-width: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.tx-actions::-webkit-scrollbar {
+    display: none;
+}
+.tx-action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition);
+    background: none;
+    border: none;
+    font-family: inherit;
+    flex-shrink: 0;
+}
+.tx-action-btn:hover { color: var(--accent-primary); }
+.tx-action-btn .action-icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+.tx-action-btn:hover .action-icon {
+    border-color: var(--accent-primary);
+    background: var(--gold-glow);
+    color: var(--accent-primary);
+}
+.tx-action-btn span {
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+/* ── Transaction Item Card (like the image) ── */
+.tx-card-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 10px;
+    transition: var(--transition);
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+}
+.tx-card-item:hover {
+    border-color: rgba(212, 168, 67, 0.15);
+}
+.tx-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 8px;
+    min-width: 0;
+}
+.tx-card-top .tx-type-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.tx-type-badge.credit {
+    background: var(--green-bg);
+    color: var(--green);
+}
+.tx-type-badge.debit {
+    background: var(--red-bg);
+    color: var(--red);
+}
+.tx-card-top .tx-id {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-family: monospace;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+    flex-shrink: 1;
+}
+.tx-card-details {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    line-height: 1.6;
+    overflow: hidden;
+}
+.tx-card-details span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.tx-card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.tx-card-total {
+    font-size: 1.1rem;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+}
+.tx-card-arrow {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--bg-elevated);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+/* ── Filter Section ── */
+.tx-filter-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+    max-width: 100%;
+}
+.tx-filter-bar select {
+    flex: 1;
+    font-size: 0.85rem;
+    padding: 10px 14px;
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* ── Transactions List Container ── */
+#transactionsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-height: 60vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 2px;
+    -webkit-overflow-scrolling: touch;
+}

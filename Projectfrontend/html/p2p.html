@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CryptoVault - P2P Trading</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/p2p.css">
+    <link rel="stylesheet" href="../css/deposit.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="top-header-left">
+                <a href="dashboard.html" class="btn-icon btn-secondary" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;text-decoration:none;"><i class="fas fa-chevron-left"></i></a>
+                <span class="page-title">P2P Trading</span>
+            </div>
+            <div class="top-header-right">
+                <button class="btn-icon btn-secondary" title="Help"><i class="fas fa-question-circle"></i></button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div id="depositBanner" class="deposit-step-card" style="display:none;margin-bottom:12px;border-color:rgba(212,168,67,0.3);">
+                <div style="display:flex;align-items:center;gap:10px;">
+                    <i class="fas fa-arrow-down" style="color:var(--accent-primary);"></i>
+                    <div>
+                        <div style="font-weight:600;font-size:0.9rem;">Deposit via P2P</div>
+                        <div style="font-size:0.75rem;color:var(--text-muted);">Select a seller, pay in fiat, receive crypto</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabs -->
+            <div class="p2p-tabs">
+                <button class="p2p-tab active" data-panel="marketPanel">Marketplace</button>
+                <button class="p2p-tab" data-panel="ordersPanel">My Orders</button>
+            </div>
+
+            <!-- Marketplace Panel -->
+            <div id="marketPanel" class="p2p-panel active">
+                <div class="p2p-filters">
+                    <select id="filterSide" class="form-input">
+                        <option value="0">Buy</option>
+                        <option value="1">Sell</option>
+                    </select>
+                    <select id="filterToken" class="form-input">
+                        <option value="USDT">USDT</option>
+                        <option value="BTC">BTC</option>
+                        <option value="ETH">ETH</option>
+                    </select>
+                    <select id="filterCurrency" class="form-input">
+                        <option value="NGN">NGN</option>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                    </select>
+                </div>
+                <div id="adsList">
+                    <div class="loading"><div class="spinner"></div></div>
+                </div>
+            </div>
+
+            <!-- Orders Panel -->
+            <div id="ordersPanel" class="p2p-panel">
+                <div id="ordersList">
+                    <div class="loading"><div class="spinner"></div></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- FAB Create Ad -->
+        <button id="createAdBtn" class="fab-create" title="Create Ad"><i class="fas fa-plus"></i></button>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="dashboard.html" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="portfolio.html" class="nav-item"><i class="fas fa-th-large"></i><span>Portfolio</span></a>
+            <a href="transactions.html" class="nav-item"><i class="fas fa-exchange-alt"></i><span>Transactions</span></a>
+            <a href="p2p.html" class="nav-item active"><i class="fas fa-store"></i><span>P2P</span></a>
+        </nav>
+    </div>
+
+    <div id="p2pOrderModal" class="modal-overlay">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3 id="p2pModalTitle">P2P Order</h3>
+                <button class="modal-close" id="closeP2pModal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body p2p-order-flow" id="p2pOrderFlow">
+                <div class="flow-step active" id="p2pStep1">
+                    <div class="form-group">
+                        <label>Amount (<span id="p2pTokenLabel">USDT</span>)</label>
+                        <input type="number" id="p2pAmount" class="form-input" placeholder="Enter amount" step="any">
+                    </div>
+                    <div class="modal-info"><span>Price</span><span id="p2pPriceDisplay">—</span></div>
+                    <div class="modal-info"><span>Total</span><span id="p2pTotalDisplay">—</span></div>
+                    <div class="modal-info"><span>Seller</span><span id="p2pVendorDisplay">—</span></div>
+                    <button id="p2pCreateOrderBtn" class="btn btn-primary btn-block" style="margin-top:16px;">Continue</button>
+                </div>
+                <div class="flow-step" id="p2pStep2">
+                    <div class="status-timeline">
+                        <div class="status-step done">
+                            <div class="status-dot"><i class="fas fa-check"></i></div>
+                            <div class="status-step-content"><h4>Order Created</h4><p>Transfer fiat to seller</p></div>
+                        </div>
+                        <div class="status-step active">
+                            <div class="status-dot">2</div>
+                            <div class="status-step-content"><h4>Pay Seller</h4><p id="p2pPayInstructions">Send payment via bank transfer</p></div>
+                        </div>
+                    </div>
+                    <button id="p2pMarkPaidBtn" class="btn btn-primary btn-block">
+                        <i class="fas fa-check"></i> I Have Transferred
+                    </button>
+                </div>
+                <div class="flow-step" id="p2pStep3">
+                    <div class="loading" style="padding:24px;"><div class="spinner"></div></div>
+                    <p class="text-center text-muted" style="font-size:0.85rem;">Seller is verifying your payment...</p>
+                    <button id="p2pReleaseBtn" class="btn btn-primary btn-block" style="display:none;margin-top:16px;">
+                        <i class="fas fa-unlock"></i> <span id="p2pReleaseText">Seller Has Released Crypto</span>
+                    </button>
+                </div>
+                <div class="flow-step" id="p2pStep4">
+                    <div class="success-card" style="padding:16px 0;">
+                        <div class="success-icon" style="width:56px;height:56px;font-size:1.5rem;"><i class="fas fa-check"></i></div>
+                        <h3>Deposit Complete</h3>
+                        <p id="p2pSuccessMsg">Crypto credited to your account.</p>
+                        <a href="dashboard.html" class="btn btn-primary btn-block">Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/config.js?v=20250609b"></script>
+    <script src="../js/api.js?v=20250609b"></script>
+    <script src="../js/utils.js?v=20250609b"></script>
+    <script src="../js/p2p.js?v=20250609b"></script>
+</body>
+</html>

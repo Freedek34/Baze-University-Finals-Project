@@ -1,0 +1,246 @@
+/* ═══════════════════════════════════════════════════════
+   CryptoVault – Withdraw Page
+   ═══════════════════════════════════════════════════════ */
+
+/* Re-use selector styles from receive page */
+.selector-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border-color);
+}
+
+.selector-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.asset-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.asset-option {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: var(--bg-secondary);
+    border: 1px solid transparent;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.asset-option:hover {
+    border-color: var(--accent-primary);
+    color: var(--text-primary);
+}
+
+.asset-option.active {
+    background: var(--accent-gradient);
+    color: #000;
+    border-color: var(--accent-primary);
+    font-weight: 600;
+}
+
+.coin-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.asset-option.active .coin-dot {
+    background: #000 !important;
+}
+
+.network-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.network-option {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: var(--bg-secondary);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.network-option:hover:not(.disabled) {
+    border-color: var(--accent-primary);
+}
+
+.network-option.active {
+    border-color: var(--accent-primary);
+    background: rgba(212, 168, 67, 0.08);
+}
+
+.network-option.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.network-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chain-badge {
+    background: var(--accent-gradient);
+    color: #000;
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.chain-type {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.network-meta {
+    display: flex;
+    gap: 16px;
+}
+
+.meta-item {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.suspended-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-size: 0.7rem;
+    color: #ff4444;
+    background: rgba(255, 68, 68, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+/* Withdraw Form */
+.withdraw-form-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 20px 16px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border-color);
+}
+
+.amount-input-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.amount-input-row .form-input {
+    flex: 1;
+}
+
+.amount-input-row .btn {
+    white-space: nowrap;
+}
+
+/* Withdraw Summary */
+.withdraw-summary {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 14px;
+    margin: 16px 0;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 0.82rem;
+}
+
+.summary-row span:first-child {
+    color: var(--text-muted);
+}
+
+.summary-row span:last-child {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.summary-row.total {
+    border-top: 1px solid var(--border-color);
+    margin-top: 6px;
+    padding-top: 10px;
+}
+
+.summary-row.total span:last-child {
+    color: var(--accent-primary);
+    font-weight: 600;
+}
+
+/* Warning Card */
+.warning-card {
+    display: flex;
+    gap: 12px;
+    background: rgba(212, 168, 67, 0.08);
+    border: 1px solid rgba(212, 168, 67, 0.2);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 16px;
+}
+
+.warning-card > i {
+    color: var(--accent-primary);
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+
+.warning-card strong {
+    display: block;
+    color: var(--accent-primary);
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+}
+
+.warning-card p {
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.empty-state-sm {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.empty-state-sm i {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    display: block;
+    color: var(--accent-primary);
+}

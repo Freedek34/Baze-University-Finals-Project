@@ -1,0 +1,152 @@
+/* CryptoVault - Earn/Savings | Black & Gold */
+
+/* ── Multi-coin wallet holdings ── */
+.wallet-holding-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    margin-bottom: 8px;
+}
+.holding-coin {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+.holding-name { font-weight: 600; font-size: 0.9rem; }
+.holding-label { font-size: 0.72rem; }
+.holding-balances { text-align: right; }
+.holding-amount { font-weight: 700; font-size: 0.9rem; }
+.holding-usd { font-size: 0.75rem; margin-top: 2px; }
+
+/* ── Portfolio-style coin cards with chart area ── */
+.portfolio-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 18px;
+    margin-bottom: 12px;
+    transition: var(--transition);
+    overflow: hidden;
+    max-width: 100%;
+}
+.portfolio-card:hover {
+    border-color: rgba(212, 168, 67, 0.15);
+}
+.portfolio-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    gap: 8px;
+    min-width: 0;
+}
+.portfolio-card-header .coin-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.portfolio-card-header .coin-icon {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+.portfolio-card-header .coin-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+.portfolio-card-header .more-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 4px;
+}
+.portfolio-card .portfolio-value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+.portfolio-card .portfolio-chart {
+    height: 60px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    border-radius: 8px;
+}
+.portfolio-card .portfolio-chart svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* ── Sync Button ── */
+.sync-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+/* ── Product Filter Chips ── */
+.filter-chips {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+    overflow-x: auto;
+    padding: 0 4px 4px 4px;
+    max-width: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.filter-chips::-webkit-scrollbar {
+    display: none;
+}
+.filter-chip {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    transition: var(--transition);
+    font-family: inherit;
+    flex-shrink: 0;
+}
+.filter-chip.active,
+.filter-chip:hover {
+    background: var(--gold-glow);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+/* ── Search Bar ── */
+.search-bar {
+    position: relative;
+    margin-bottom: 14px;
+}
+.search-bar-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    pointer-events: none;
+}
+.search-input {
+    padding-left: 40px !important;
+    font-size: 0.85rem;
+}

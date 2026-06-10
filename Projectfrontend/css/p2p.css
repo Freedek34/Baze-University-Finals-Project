@@ -1,0 +1,112 @@
+/* CryptoVault - P2P Trading | Black & Gold */
+
+/* ── Ads List Container ── */
+#adsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ── P2P Filters Row ── */
+.p2p-filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+.p2p-filters select {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.85rem;
+    padding: 10px 12px;
+}
+
+/* ── P2P Ad Cards (vertical stack) ── */
+.p2p-ad-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 10px;
+    transition: var(--transition);
+    width: 100%;
+    box-sizing: border-box;
+}
+.p2p-ad-card:hover {
+    border-color: rgba(212, 168, 67, 0.15);
+}
+.p2p-ad-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.p2p-ad-top .ad-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #000;
+    flex-shrink: 0;
+}
+.p2p-ad-top .ad-info { flex: 1; }
+.p2p-ad-top .ad-nick {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.p2p-ad-top .ad-stats {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+.p2p-ad-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.p2p-ad-body .info-item {
+    font-size: 0.8rem;
+}
+.p2p-ad-body .info-label {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    display: block;
+    margin-bottom: 2px;
+}
+.p2p-ad-body .info-value {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.p2p-ad-payments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+/* ── Create Ad Button (FAB) ── */
+.fab-create {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    color: #000;
+    border: none;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-gold);
+    transition: var(--transition);
+    z-index: 50;
+}
+.fab-create:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 24px rgba(212, 168, 67, 0.35);
+}

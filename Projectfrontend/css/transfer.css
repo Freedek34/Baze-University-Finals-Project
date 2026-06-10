@@ -1,0 +1,91 @@
+/* CryptoVault - Transfer | Black & Gold */
+
+/* ── Transfer Form Card ── */
+.transfer-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 16px;
+}
+.transfer-card .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.transfer-card .card-title .badge {
+    font-size: 0.75rem;
+}
+
+/* ── Recipient Found Card ── */
+.recipient-found {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    background: var(--green-bg);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    color: var(--green);
+}
+.recipient-not-found {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    background: var(--red-bg);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+}
+
+/* ── How it works section ── */
+.how-it-works {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 20px;
+}
+.how-it-works h3 {
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.how-it-works h3 i { color: var(--accent-primary); }
+.how-it-works .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+.how-it-works .step-num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--gold-glow);
+    color: var(--accent-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+}
+.how-it-works .tip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 12px;
+    background: var(--bg-elevated);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+.how-it-works .tip i { color: var(--accent-primary); font-size: 0.9rem; }
