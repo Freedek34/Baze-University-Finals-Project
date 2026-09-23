@@ -73,6 +73,11 @@ class User:
 
     @staticmethod
     def authenticate(username_or_email, password):
+        # Normalize inputs: username/email already trimmed by the caller,
+        # ensure password accidental whitespace is ignored to avoid
+        # confusion from copy/paste including leading/trailing spaces.
+        if isinstance(password, str):
+            password = password.strip()
         user = User.find_by_username(username_or_email)
         if not user:
             user = User.find_by_email(username_or_email)

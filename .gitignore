@@ -40,6 +40,7 @@ pip-delete-this-directory.txt
 # Virtual environments
 venv/
 .venv/
+.venv_screenshots/
 env/
 ENV/
 env.bak/

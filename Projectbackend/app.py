@@ -131,7 +131,11 @@ def register():
         return jsonify({'error': 'No data provided'}), 400
     username = data.get('username', '').strip()
     email = data.get('email', '').strip().lower()
+    # Trim accidental leading/trailing whitespace from passwords to avoid
+    # login/register confusion when users copy/paste with spaces.
     password = data.get('password', '')
+    if isinstance(password, str):
+        password = password.strip()
     if not username or len(username) < 3:
         return jsonify({'error': 'Username must be at least 3 characters'}), 400
     if not email or '@' not in email:
@@ -154,6 +158,8 @@ def login():
         return jsonify({'error': 'No data provided'}), 400
     username_or_email = data.get('username', '').strip()
     password = data.get('password', '')
+    if isinstance(password, str):
+        password = password.strip()
     print(f"[DEBUG] Login attempt - username: '{username_or_email}', password length: {len(password)}")
     if not username_or_email or not password:
         return jsonify({'error': 'Username/email and password are required'}), 400
